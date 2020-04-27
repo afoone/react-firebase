@@ -30,7 +30,7 @@ const CreatePost = props => {
             } else {
                 console.log("create mode")
             }
-        }, []
+        }, [props.match.params.id]
     )
 
     const onFinish = e => {

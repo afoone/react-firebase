@@ -15,7 +15,13 @@ function Posts() {
     }, [])
 
 
-    console.log(posts)
+    const deletePost = (id) => {
+        console.log("delete post " + id)
+        db.collection("posts").doc(id).delete().then(
+            setPosts(posts.filter(p => p.id !== id))
+        )
+    }
+
     return (
         <div className="posts">
             <PageHeader
@@ -26,7 +32,7 @@ function Posts() {
 
             {
                 posts ? posts.map(
-                    (e, i) => <PostSnippet key={e.id} item={{id: e.id, ...e.data()}}></PostSnippet>
+                    (e, i) => <PostSnippet delete={deletePost} key={e.id} item={{ id: e.id, ...e.data() }}></PostSnippet>
                 ) : null
             }
         </div>

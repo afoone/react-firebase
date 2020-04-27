@@ -9,7 +9,6 @@ function Post(props) {
     const [redirect, setRedirect] = useState(false);
 
     useEffect(() => {
-        console.log(props.match.params.id)
         db.collection('posts').doc(props.match.params.id).get()
             .then(
                 res => {

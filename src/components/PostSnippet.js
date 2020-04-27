@@ -4,7 +4,10 @@ import {Link} from 'react-router-dom'
 
 function PostSnippet(props) {
 
-    console.log(props.item)
+
+
+
+
     return (
         <div className="post-snippet">
             <Card
@@ -16,6 +19,8 @@ function PostSnippet(props) {
                     <Link to={`/post/${props.item.id}/show`}>Leer</Link>
                     &nbsp;
                     <Link to={`/post/${props.item.id}/edit`}>Editar</Link>
+                    &nbsp;
+                    <a href="./#" onClick={() => props.delete(props.item.id)}> Delete</a>
                     </>
                 }
             >
